@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# Fixing rights
+chown root:root /usr/share/kibana
+find /usr/share/kibana -type f -exec chmod 644 {} \;
+find /usr/share/kibana -type d -exec chmod 775 {} \;
+
+exit 0
+
