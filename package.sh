@@ -20,5 +20,5 @@ ln -sf /etc/kibana/dashboards usr/share/kibana/dashboards
 
 cd ..
 
-fpm -n kibana -v ${VERSION} -a all -C kibana-packaging -m "<jonathan.raffre@smile.fr>" --after-install kibana-packaging/kibana.postinstall --description "Kibana 3 - New Generation Log Analyzer" --url 'http://three.kibana.org/' -t deb --config-files etc/kibana/config.js -d java-runtime -s dir etc usr
+fpm -n kibana -v ${VERSION} -a all -C kibana-packaging -m "<jonathan.raffre@nekolover.net>" --after-install kibana-packaging/kibana.postinstall --description "Kibana 3 - New Generation Log Analyzer" --url 'http://three.kibana.org/' -t deb --config-files etc/kibana/config.js -d httpd -s dir etc usr
 
