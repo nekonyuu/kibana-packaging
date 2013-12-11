@@ -1,22 +1,20 @@
 #!/bin/bash
 # Downloading master
 VERSION=3.0m4
-URL=https://github.com/elasticsearch/kibana/archive/v3.0.0milestone4.zip
+URL=https://github.com/elasticsearch/kibana/archive/v3.0.0milestone4.tar.gz
 
 # Downloading
 mkdir -p build usr/share/kibana etc/kibana
 cd build
 wget ${URL} -O kibana-${VERSION}.tar.gz
 tar xf kibana-${VERSION}.tar.gz
-cd kibana-master
+cd kibana-*/src/
 
 # Preparing 
-cp -r common index.html js panels partials sample vendor ../../usr/share/kibana/
-cp -r dashboards config.js ../../etc/kibana
-cp dashboards/logstash.json ../../etc/kibana/dashboards/default.json
-cd ../../
+cp -r */ index.html ../../../usr/share/kibana/
+cp -r config.js ../../../etc/kibana
+cd ../../../
 ln -sf /etc/kibana/config.js usr/share/kibana/config.js
-ln -sf /etc/kibana/dashboards usr/share/kibana/dashboards
 
 cd ..
 
