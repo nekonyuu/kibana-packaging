@@ -5,5 +5,15 @@ chown root:root /usr/share/kibana
 find /usr/share/kibana -type f -exec chmod 644 {} \;
 find /usr/share/kibana -type d -exec chmod 775 {} \;
 
+if [ -d '/etc/apache2/conf.d/' ]
+then
+	ln -s /etc/kibana/apache2.conf /etc/apache2/conf.d/kibana.conf
+	service apache2 reload
+elif [ -d '/etc/nginx/conf.d/' ]
+then
+	ln -s /etc/kibana/nginx.conf /etc/nginx/conf.d/kibana.conf
+	service nginx reload
+fi
+
 exit 0
 

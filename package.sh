@@ -15,6 +15,7 @@ cp -r */ index.html ../../../usr/share/kibana/
 cp -r config.js ../../../etc/kibana
 cd ../../../
 ln -sf /etc/kibana/config.js usr/share/kibana/config.js
+cp externals/confs/* etc/kibana
 
 cd ..
 
