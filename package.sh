@@ -1,7 +1,7 @@
 #!/bin/bash
 # Downloading master
-VERSION=3.0m3
-URL=https://github.com/elasticsearch/kibana/archive/master.tar.gz
+VERSION=3.0m4
+URL=https://github.com/elasticsearch/kibana/archive/v3.0.0milestone4.zip
 
 # Downloading
 mkdir -p build usr/share/kibana etc/kibana
@@ -20,5 +20,5 @@ ln -sf /etc/kibana/dashboards usr/share/kibana/dashboards
 
 cd ..
 
-fpm -n kibana -v ${VERSION} -a all -C kibana-packaging -m "<jonathan.raffre@nekolover.net>" --after-install kibana-packaging/kibana.postinstall --description "Kibana 3 - New Generation Log Analyzer" --url 'http://three.kibana.org/' -t deb --config-files etc/kibana/config.js -d httpd -s dir etc usr
+fpm -n kibana -v ${VERSION} -a all -C kibana-packaging -m "<jonathan.raffre@smile.fr>" --after-install kibana-packaging/kibana.postinstall --description "Kibana 3 - New Generation Log Analyzer" --url 'http://three.kibana.org/' -t deb --config-files etc/kibana/config.js -d httpd -s dir etc usr
 
